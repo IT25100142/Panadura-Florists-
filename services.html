@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Panadura Florists</title>
+    <meta name="description" content="Detailed funeral services including embalming, luxury hearses, and traditional Ransivige.">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#111111',
+                            dark: '#1a1a1a',
+                            gold: '#bf9b30',
+                            goldLight: '#f2d888',
+                            gray: '#f4f4f4',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cinzel"', 'serif'],
+                        sans: ['"Manrope"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-600 bg-white flex flex-col min-h-screen">
+
+    <!-- Top Info Bar -->
+    <div class="bg-brand-black text-gray-400 py-3 text-xs md:text-sm border-b border-white/10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-2"><i class="fas fa-phone-alt text-brand-gold"></i> 24/7 Hotline: <b class="text-white tracking-wider">038-223-XXXX</b></span>
+            </div>
+            <!-- Language Switcher -->
+            <div class="flex gap-4">
+                <a href="javascript:void(0)" onclick="changeLanguage('si')" id="btn-si" class="hover:text-brand-gold transition font-sinhala">Sinhala</a>
+                <span class="text-gray-700">|</span>
+                <a href="javascript:void(0)" onclick="changeLanguage('en')" id="btn-en" class="text-brand-gold font-bold">English</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center gap-4 group">
+                    <div class="w-12 h-12 bg-black text-brand-gold flex items-center justify-center border border-brand-gold rounded-sm">
+                        <i class="fas fa-dove text-xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl md:text-3xl font-serif font-bold text-black tracking-widest uppercase leading-none">Panadura</span>
+                        <span class="text-[0.65rem] tracking-[0.4em] text-brand-gold uppercase font-sans font-bold mt-1">Florists & Funerals</span>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex space-x-8 font-sans text-xs font-bold text-gray-800 items-center uppercase tracking-widest">
+                    <a href="index.html" class="hover:text-brand-gold transition duration-300" data-i18n="nav_home">Home</a>
+                    <a href="about-us.html" class="hover:text-brand-gold transition duration-300" data-i18n="nav_about">About Us</a>
+                    <a href="services.html" class="text-brand-gold border-b-2 border-brand-gold pb-1" data-i18n="nav_services">Services</a>
+                    <a href="packages.html" class="hover:text-brand-gold transition duration-300" data-i18n="nav_packages">Packages</a>
+                    <a href="gallery.html" class="hover:text-brand-gold transition duration-300" data-i18n="nav_gallery">Gallery</a>
+                    <a href="contact.html" class="px-6 py-3 bg-brand-black text-brand-gold border border-brand-gold/50 hover:bg-brand-gold hover:text-black transition duration-300" data-i18n="nav_contact">Contact Us</a>
+                </div>
+
+                <button id="mobileMenuBtn" class="md:hidden text-black text-2xl focus:outline-none p-2 border border-gray-200 rounded-sm">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay (FIXED BG) -->
+        <div id="mobileMenu" class="fixed inset-0 bg-black z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-8 text-white text-xl font-serif">
+            <button id="closeMenuBtn" class="absolute top-6 right-6 text-3xl text-brand-gold hover:rotate-90 transition duration-300">
+                <i class="fas fa-times"></i>
+            </button>
+            <a href="index.html" class="hover:text-brand-gold" data-i18n="nav_home">Home</a>
+            <a href="about-us.html" class="hover:text-brand-gold" data-i18n="nav_about">About Us</a>
+            <a href="services.html" class="text-brand-gold" data-i18n="nav_services">Services</a>
+            <a href="packages.html" class="hover:text-brand-gold" data-i18n="nav_packages">Packages</a>
+            <a href="gallery.html" class="hover:text-brand-gold transition" data-i18n="nav_gallery">Gallery</a>
+            <a href="contact.html" class="border border-brand-gold px-10 py-3 text-brand-gold hover:bg-brand-gold hover:text-black transition uppercase text-sm tracking-widest" data-i18n="nav_contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="relative h-[400px] bg-fixed bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1596068582733-4f59b9560c44?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        <div class="absolute inset-0 bg-black/70"></div>
+        <div class="relative z-10 text-center px-4 fade-in-up text-white">
+            <span class="uppercase tracking-[0.4em] text-brand-gold text-xs md:text-sm font-bold mb-4 block">Professional Care</span>
+            <h1 class="text-4xl md:text-6xl font-serif font-bold mb-4" data-i18n="svc_page_title">Our Services</h1>
+            <div class="w-20 h-1 bg-brand-gold mx-auto"></div>
+        </div>
+    </header>
+
+    <!-- Service Detail Sections -->
+    <div class="bg-brand-gray py-20">
+        <div class="container mx-auto px-6 space-y-20">
+            
+            <!-- Service 1: Funeral Management -->
+            <div class="flex flex-col md:flex-row gap-12 items-center bg-white p-8 md:p-12 shadow-sm rounded-sm">
+                <div class="md:w-1/3 text-center">
+                    <div class="w-24 h-24 bg-brand-black text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-tie text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-brand-black" data-i18n="svc_management_title">Funeral Management</h3>
+                </div>
+                <div class="md:w-2/3">
+                    <p class="text-gray-600 leading-relaxed mb-4" data-i18n="svc_management_desc">
+                        We take the weight off your shoulders by handling every aspect of the funeral arrangement. From the moment you contact us, our experienced funeral directors will guide you through legal documentation, cemetery or crematorium booking, and ceremony planning.
+                    </p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-500">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Legal Registration Support</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Newspaper Notice Placements</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Venue Coordination</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Religious Clergy Arrangement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 2: Embalming -->
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center bg-white p-8 md:p-12 shadow-sm rounded-sm">
+                <div class="md:w-1/3 text-center">
+                    <div class="w-24 h-24 bg-brand-black text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hands text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-brand-black" data-i18n="svc_embalming_title">Professional Embalming</h3>
+                </div>
+                <div class="md:w-2/3">
+                    <p class="text-gray-600 leading-relaxed mb-4" data-i18n="svc_embalming_desc">
+                        Our qualified embalmers use state-of-the-art techniques to preserve the dignity of your loved one. We also offer mobile freezer facilities for home funerals, ensuring preservation and hygiene are maintained throughout the wake.
+                    </p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-500">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Hygienic Treatment</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Dressing & Cosmetology</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Mobile Freezer Units</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 3: Luxury Hearses -->
+            <div class="flex flex-col md:flex-row gap-12 items-center bg-white p-8 md:p-12 shadow-sm rounded-sm">
+                <div class="md:w-1/3 text-center">
+                    <div class="w-24 h-24 bg-brand-black text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-car text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-brand-black" data-i18n="svc_fleet_title">Luxury Fleet</h3>
+                </div>
+                <div class="md:w-2/3">
+                    <p class="text-gray-600 leading-relaxed mb-4" data-i18n="svc_fleet_desc">
+                        We possess one of the finest fleets of ceremonial vehicles in Sri Lanka. Choose from our signature Black & Gold hearses, modern Mercedes Benz units, or classic Volvo hearses. We also provide flower vans and family transport coaches.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Service 4: Ransivige & Pyres -->
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center bg-white p-8 md:p-12 shadow-sm rounded-sm">
+                <div class="md:w-1/3 text-center">
+                    <div class="w-24 h-24 bg-brand-black text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-vihara text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-brand-black" data-i18n="svc_ransivige_title">Traditional Ransivige</h3>
+                </div>
+                <div class="md:w-2/3">
+                    <p class="text-gray-600 leading-relaxed mb-4" data-i18n="svc_ransivige_desc">
+                        For traditional Buddhist funerals, we construct elaborate and respectful Ransivige (Funeral Pyre Structures). Our skilled craftsmen create distinct designs that honor the cultural heritage and status of the deceased.
+                    </p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-500">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Custom Pyre Design</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Traditional Decorations</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Gold & White Themes</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="py-16 bg-brand-black text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl md:text-3xl font-serif font-bold text-white mb-6" data-i18n="cta_title">Need Assistance?</h2>
+            <p class="text-gray-400 mb-8" data-i18n="cta_desc">Our team is available 24/7 to answer your questions and guide you.</p>
+            <a href="contact.html" class="inline-block bg-brand-gold text-black px-10 py-3 font-bold uppercase tracking-widest hover:bg-white hover:text-black transition duration-300" data-i18n="btn_contact">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-black text-white pt-16 pb-8 border-t-4 border-brand-gold">
+        <div class="container mx-auto px-6 text-center text-xs text-gray-500">
+            <p>&copy; 2025 Panadura Florists (Pvt) Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Home Button (Mobile Only) -->
+    <a href="index.html" class="fixed bottom-6 left-6 bg-brand-black text-brand-gold w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-brand-gold hover:text-black transition duration-300 z-40 md:hidden">
+        <i class="fas fa-home text-lg"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funeral Packages - Panadura Florists</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;500;600&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#111111',
+                            gold: '#bf9b30', 
+                            gray: '#f9f9f9',
+                            darkGray: '#222222',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cinzel"', 'serif'],
+                        sans: ['"Manrope"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles for Card Animations -->
+    <style>
+        .package-card {
+            transition: all 0.3s ease;
+        }
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .overlay-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .overlay-container img {
+            transition: transform 0.5s ease;
+        }
+        .package-card:hover .overlay-container img {
+            transform: scale(1.1);
+        }
+        .overlay-actions {
+            background: rgba(0,0,0,0.4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .package-card:hover .overlay-actions {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="text-gray-600 bg-brand-gray flex flex-col min-h-screen font-sans">
+
+    <!-- Top Info Bar -->
+    <div class="bg-brand-black text-gray-400 py-3 text-xs md:text-sm border-b border-white/10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-2"><i class="fas fa-phone-alt text-brand-gold"></i> 24/7 Hotline: <b class="text-white tracking-wider">038-223-XXXX</b></span>
+            </div>
+            <div class="flex gap-4">
+                <a href="javascript:void(0)" onclick="changeLanguage('si')" id="btn-si" class="hover:text-brand-gold transition font-sinhala">Sinhala</a>
+                <span class="text-gray-700">|</span>
+                <a href="javascript:void(0)" onclick="changeLanguage('en')" id="btn-en" class="text-brand-gold font-bold">English</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-black text-brand-gold flex items-center justify-center border border-brand-gold rounded-sm">
+                    <i class="fas fa-dove text-lg"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-serif font-bold text-black uppercase tracking-widest leading-none">Panadura</span>
+                    <span class="text-[0.6rem] tracking-[0.3em] text-brand-gold uppercase font-bold mt-1">Florists</span>
+                </div>
+            </a>
+            <div class="hidden md:flex space-x-8 text-xs font-bold text-gray-800 uppercase tracking-widest">
+                <a href="index.html" class="hover:text-brand-gold transition" data-i18n="nav_home">Home</a>
+                <a href="about-us.html" class="hover:text-brand-gold transition" data-i18n="nav_about">About Us</a>
+                <a href="packages.html" class="text-brand-gold border-b-2 border-brand-gold pb-1" data-i18n="nav_packages">Packages</a>
+                <a href="contact.html" class="hover:text-brand-gold transition" data-i18n="nav_contact">Contact</a>
+            </div>
+            <button id="mobileMenuBtn" class="md:hidden text-black text-xl"><i class="fas fa-bars"></i></button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="fixed inset-0 bg-black z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-6 text-white">
+            <button id="closeMenuBtn" class="absolute top-6 right-6 text-2xl text-brand-gold"><i class="fas fa-times"></i></button>
+            <a href="index.html" class="hover:text-brand-gold" data-i18n="nav_home">Home</a>
+            <a href="packages.html" class="text-brand-gold" data-i18n="nav_packages">Packages</a>
+            <a href="gallery.html" class="hover:text-brand-gold" data-i18n="nav_gallery">Gallery</a>
+            <a href="contact.html" class="hover:text-brand-gold" data-i18n="nav_contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative bg-gray-900 h-80 flex items-center justify-center bg-cover bg-center" style="background-image: url('https://www.chandrapanagoda.lk/wp-content/uploads/2017/04/service.jpg');">
+        <div class="absolute inset-0 bg-black/70"></div>
+        <div class="relative z-10 text-center px-4 fade-in-up">
+            <h1 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4 uppercase tracking-widest" data-i18n="pkg_page_title">Select Your Package</h1>
+            <div class="w-16 h-1 bg-brand-gold mx-auto mb-6"></div>
+            <p class="text-gray-300 text-sm md:text-base mb-4 font-light max-w-xl mx-auto" data-i18n="pkg_page_subtitle">Choose a respectful farewell service that suits your needs. We offer transparency and dignity in every option.</p>
+        </div>
+    </div>
+
+    <!-- Shop Grid -->
+    <main class="container mx-auto px-6 py-16">
+        
+        <!-- Filter/Sort Bar -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-10 border-b border-gray-200 pb-6 gap-4">
+            <span class="text-gray-500 text-sm font-bold uppercase tracking-wide">Showing 6 Dignified Packages</span>
+            <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-400 uppercase">Sort By:</span>
+                <select id="sortDropdown" class="border border-gray-300 rounded-sm px-4 py-2 text-sm text-gray-600 focus:outline-none focus:border-brand-gold bg-transparent">
+                    <option value="default">Recommended</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="packagesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- 1. General Package -->
+            <div class="package-card bg-white rounded-sm overflow-hidden border border-gray-100 flex flex-col h-full group" data-price="45000">
+                <div class="overlay-container relative h-64 bg-gray-200">
+                    <img src="https://www.chandrapanagoda.lk/wp-content/uploads/2016/04/general-470x430.jpg" alt="General Packages" class="w-full h-full object-cover">
+                    <div class="absolute top-4 right-4 bg-black/80 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1">Budget Friendly</div>
+                    <!-- Quick Actions Overlay -->
+                    <div class="overlay-actions absolute inset-0 flex items-center justify-center">
+                        <button onclick="openModal('general')" class="bg-white text-black w-12 h-12 rounded-full hover:bg-brand-gold hover:text-black transition shadow-lg transform hover:scale-110 flex items-center justify-center">
+                            <i class="fas fa-eye text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow text-center">
+                    <h3 class="text-xl font-serif font-bold mb-2 hover:text-brand-gold cursor-pointer text-black" data-i18n="pkg_general_title">General Package</h3>
+                    <div class="text-brand-gold font-bold text-lg mb-4">Rs. 45,000</div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow" data-i18n="pkg_general_desc">
+                        The affordable funeral plan. Specially designed for those who want to arrange a decent ceremony at the lowest possible cost.
+                    </p>
+                    <a href="tel:+9438223XXXX" class="w-full bg-brand-black text-white font-bold uppercase tracking-widest text-xs py-4 px-4 hover:bg-brand-gold hover:text-black transition-colors flex justify-center items-center gap-2" data-i18n="btn_contact">
+                        <span>Contact Us</span>
+                        <i class="fas fa-phone text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. Standard Package -->
+            <div class="package-card bg-white rounded-sm overflow-hidden border border-gray-100 flex flex-col h-full group" data-price="75000">
+                <div class="overlay-container relative h-64 bg-gray-200">
+                    <img src="https://www.chandrapanagoda.lk/wp-content/uploads/2016/04/standard-2-470x430.jpg" alt="Standard Packages" class="w-full h-full object-cover">
+                    <div class="overlay-actions absolute inset-0 flex items-center justify-center">
+                        <button onclick="openModal('standard')" class="bg-white text-black w-12 h-12 rounded-full hover:bg-brand-gold hover:text-black transition shadow-lg transform hover:scale-110 flex items-center justify-center">
+                            <i class="fas fa-eye text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow text-center">
+                    <h3 class="text-xl font-serif font-bold mb-2 hover:text-brand-gold cursor-pointer text-black" data-i18n="pkg_standard_title">Standard Package</h3>
+                    <div class="text-brand-gold font-bold text-lg mb-4">Rs. 75,000</div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow" data-i18n="pkg_standard_desc">
+                        Designed specially for those who look for above average funeral ceremony with all the elements of a standard funeral ceremony.
+                    </p>
+                    <a href="tel:+9438223XXXX" class="w-full bg-brand-black text-white font-bold uppercase tracking-widest text-xs py-4 px-4 hover:bg-brand-gold hover:text-black transition-colors flex justify-center items-center gap-2" data-i18n="btn_contact">
+                        <span>Contact Us</span>
+                        <i class="fas fa-phone text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Silver Package -->
+            <div class="package-card bg-white rounded-sm overflow-hidden border border-gray-100 flex flex-col h-full group" data-price="110000">
+                <div class="overlay-container relative h-64 bg-gray-200">
+                    <img src="https://www.chandrapanagoda.lk/wp-content/uploads/2016/04/silver-3-470x430.jpg" alt="Silver Package" class="w-full h-full object-cover">
+                    <div class="absolute top-4 left-4 bg-brand-gold text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1">VIP Service</div>
+                    <div class="overlay-actions absolute inset-0 flex items-center justify-center">
+                        <button onclick="openModal('silver')" class="bg-white text-black w-12 h-12 rounded-full hover:bg-brand-gold hover:text-black transition shadow-lg transform hover:scale-110 flex items-center justify-center">
+                            <i class="fas fa-eye text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow text-center">
+                    <h3 class="text-xl font-serif font-bold mb-2 hover:text-brand-gold cursor-pointer text-black" data-i18n="pkg_silver_title">Silver Package</h3>
+                    <div class="text-brand-gold font-bold text-lg mb-4">Rs. 110,000</div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow" data-i18n="pkg_silver_desc">
+                        A modest but elegant last ceremony. Special floral arrangements and sprayed casket are included in this tier.
+                    </p>
+                    <a href="tel:+9438223XXXX" class="w-full bg-brand-black text-white font-bold uppercase tracking-widest text-xs py-4 px-4 hover:bg-brand-gold hover:text-black transition-colors flex justify-center items-center gap-2" data-i18n="btn_contact">
+                        <span>Contact Us</span>
+                        <i class="fas fa-phone text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Gold Package -->
+            <div class="package-card bg-white rounded-sm overflow-hidden border border-brand-gold/30 flex flex-col h-full group relative" data-price="185000">
+                <div class="overlay-container relative h-64 bg-gray-200">
+                    <img src="https://www.chandrapanagoda.lk/wp-content/uploads/2016/04/gold-1-470x430.jpg" alt="Gold Package" class="w-full h-full object-cover">
+                    <div class="absolute top-4 left-4 bg-brand-gold text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1" data-i18n="tag_vip">VIP Service</div>
+                    <div class="overlay-actions absolute inset-0 flex items-center justify-center">
+                        <button onclick="openModal('gold')" class="bg-white text-black w-12 h-12 rounded-full hover:bg-brand-gold hover:text-black transition shadow-lg transform hover:scale-110 flex items-center justify-center">
+                            <i class="fas fa-eye text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow text-center bg-brand-gray/30">
+                    <h3 class="text-xl font-serif font-bold mb-2 hover:text-brand-gold cursor-pointer text-black" data-i18n="pkg_gold_title">Gold Package</h3>
+                    <div class="text-brand-gold font-bold text-lg mb-4">Rs. 185,000</div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow" data-i18n="pkg_gold_desc">
+                        Includes luxury rippled casket, Mercedes/Volvo hearse, and personal uniformed attendees for a dignified farewell.
+                    </p>
+                    <a href="tel:+9438223XXXX" class="w-full bg-brand-black text-white font-bold uppercase tracking-widest text-xs py-4 px-4 hover:bg-brand-gold hover:text-black transition-colors flex justify-center items-center gap-2" data-i18n="btn_contact">
+                        <span>Contact Us</span>
+                        <i class="fas fa-phone text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. Diamond Package -->
+            <div class="package-card bg-white rounded-sm overflow-hidden border border-brand-gold/30 flex flex-col h-full group relative" data-price="250000">
+                <div class="overlay-container relative h-64 bg-gray-200">
+                    <img src="https://www.chandrapanagoda.lk/wp-content/uploads/2016/04/Diamond-1-470x430.jpg" alt="Diamond Package" class="w-full h-full object-cover">
+                    <div class="absolute top-4 left-4 bg-brand-gold text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1" data-i18n="tag_vip">VIP Service</div>
+                    <div class="overlay-actions absolute inset-0 flex items-center justify-center">
+                        <button onclick="openModal('diamond')" class="bg-white text-black w-12 h-12 rounded-full hover:bg-brand-gold hover:text-black transition shadow-lg transform hover:scale-110 flex items-center justify-center">
+                            <i class="fas fa-eye text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow text-center bg-brand-gray/30">
+                    <h3 class="text-xl font-serif font-bold mb-2 hover:text-brand-gold cursor-pointer text-black" data-i18n="pkg_diamond_title">Diamond Package</h3>
+                    <div class="text-brand-gold font-bold text-lg mb-4">Rs. 250,000</div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow" data-i18n="pkg_diamond_desc">
+                        Features open-poles luxury casket, limousine hearse, full band, and live streaming services for extended family.
+                    </p>
+                    <a href="tel:+9438223XXXX" class="w-full bg-brand-black text-white font-bold uppercase tracking-widest text-xs py-4 px-4 hover:bg-brand-gold hover:text-black transition-colors flex justify-center items-center gap-2" data-i18n="btn_contact">
+                        <span>Contact Us</span>
+                        <i class="fas fa-phone text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 6. Platinum Package -->
+            <div class="package-card bg-brand-black rounded-sm overflow-hidden border border-brand-gold flex flex-col h-full group relative shadow-2xl" data-price="999999">
+                <div class="overlay-container relative h-64 bg-gray-900">
+                    <img src="https://www.chandrapanagoda.lk/wp-content/uploads/2016/03/platinum-470x430.jpg" alt="Platinum Package" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition">
+                    <div class="absolute top-4 left-4 bg-white text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1" data-i18n="tag_elite">Elite</div>
+                    <div class="overlay-actions absolute inset-0 flex items-center justify-center">
+                        <button onclick="openModal('platinum')" class="bg-brand-gold text-black w-12 h-12 rounded-full hover:bg-white transition shadow-lg transform hover:scale-110 flex items-center justify-center">
+                            <i class="fas fa-eye text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow text-center">
+                    <h3 class="text-xl font-serif font-bold mb-2 text-white" data-i18n="pkg_platinum_title">Platinum Package</h3>
+                    <div class="text-brand-gold font-bold text-lg mb-4">Contact for Price</div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow" data-i18n="pkg_platinum_desc">
+                        The ultimate tribute. Presidential casket, executive fleet, drone coverage, and full event management.
+                    </p>
+                    <a href="tel:+9438223XXXX" class="w-full bg-brand-gold text-black font-bold uppercase tracking-widest text-xs py-4 px-4 hover:bg-white transition-colors flex justify-center items-center gap-2" data-i18n="btn_contact">
+                        <span>Contact Us</span>
+                        <i class="fas fa-phone text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- MODAL STRUCTURE -->
+    <div id="packageModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        
+        <!-- Content -->
+        <div class="relative bg-white w-full max-w-lg mx-4 rounded-sm shadow-2xl overflow-hidden transform transition-all duration-300">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-black text-2xl z-10 hover:text-brand-gold transition"><i class="fas fa-times"></i></button>
+            
+            <!-- Image Header -->
+            <div class="h-48 overflow-hidden">
+                <img id="modalImage" src="" alt="Package" class="w-full h-full object-cover">
+            </div>
+
+            <div class="p-8">
+                <h3 id="modalTitle" class="text-2xl font-serif font-bold text-black mb-2">Package Title</h3>
+                <p id="modalPrice" class="text-xl font-bold text-brand-gold mb-6 border-b border-gray-100 pb-4">Rs. 0.00</p>
+                
+                <ul id="modalList" class="space-y-3 text-sm text-gray-600 mb-8">
+                    <!-- Javascript will populate this -->
+                </ul>
+
+                <!-- UPDATED BUTTON: Contact Us / Dial -->
+                <a href="tel:+9438223XXXX" class="block w-full text-center bg-black text-brand-gold py-4 font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-black transition" data-i18n="btn_contact">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-500 py-8 text-center text-xs border-t border-gray-900">
+        <p>&copy; 2025 Panadura Florists. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Back to Home Button (Mobile Only) -->
+    <a href="index.html" class="fixed bottom-6 left-6 bg-brand-black text-brand-gold w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-brand-gold hover:text-black transition duration-300 z-40 md:hidden">
+        <i class="fas fa-home text-lg"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

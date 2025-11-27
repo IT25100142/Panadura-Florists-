@@ -1,0 +1,101 @@
+/* PANADURA FLORISTS - PREMIUM BLACK & GOLD THEME
+    Colors: Black (#111), Gold (#bf9b30), White (#fff)
+    Fonts: Cinzel (Serif), Manrope (Sans), Noto Sans Sinhala (Sinhala)
+*/
+
+/* --- IMPORT FONTS --- */
+/* Importing Noto Sans Sinhala for the language switcher */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap');
+
+/* General Reset */
+body {
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+}
+
+/* Helper class for Sinhala Text */
+.font-sinhala {
+    font-family: 'Noto Sans Sinhala', sans-serif !important;
+}
+
+/* ---------------------------
+   ANIMATIONS & EFFECTS
+   ---------------------------
+*/
+
+/* Hero Slider */
+.hero-slider {
+    position: relative;
+    /* Height handled in HTML classes */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 2s ease-in-out, transform 10s linear;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1);
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1.1); /* Slow zoom effect similar to Ken Burns */
+}
+
+/* Scroll Animations */
+.scroll-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Delays */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+
+/* Fade In Up (Initial Load) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+/* Scroll Top Button Visibility */
+#scrollTopBtn {
+    transition: all 0.4s ease;
+}
+#scrollTopBtn.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Text Selection Color */
+::selection {
+    background: #bf9b30;
+    color: #000;
+}

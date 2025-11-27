@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Panadura Florists</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;500;600&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#111111',
+                            gold: '#bf9b30', 
+                            gray: '#f9f9f9',
+                            darkGray: '#222222',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cinzel"', 'serif'],
+                        sans: ['"Manrope"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-600 bg-brand-gray flex flex-col min-h-screen font-sans">
+
+    <!-- Top Info Bar -->
+    <div class="bg-brand-black text-gray-400 py-3 text-xs md:text-sm border-b border-white/10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-2"><i class="fas fa-phone-alt text-brand-gold"></i> 24/7 Hotline: <b class="text-white tracking-wider">038-223-XXXX</b></span>
+            </div>
+            <div class="flex gap-4">
+                <a href="javascript:void(0)" onclick="changeLanguage('si')" id="btn-si" class="hover:text-brand-gold transition font-sinhala">Sinhala</a>
+                <span class="text-gray-700">|</span>
+                <a href="javascript:void(0)" onclick="changeLanguage('en')" id="btn-en" class="text-brand-gold font-bold">English</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-black text-brand-gold flex items-center justify-center border border-brand-gold rounded-sm">
+                    <i class="fas fa-dove text-lg"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-serif font-bold text-black uppercase tracking-widest leading-none">Panadura</span>
+                    <span class="text-[0.6rem] tracking-[0.3em] text-brand-gold uppercase font-bold mt-1">Florists</span>
+                </div>
+            </a>
+            <div class="hidden md:flex space-x-8 text-xs font-bold text-gray-800 uppercase tracking-widest">
+                <a href="index.html" class="hover:text-brand-gold transition" data-i18n="nav_home">Home</a>
+                <a href="about-us.html" class="hover:text-brand-gold transition" data-i18n="nav_about">About Us</a>
+                <a href="packages.html" class="hover:text-brand-gold transition" data-i18n="nav_packages">Packages</a>
+                <a href="contact.html" class="text-brand-gold border-b-2 border-brand-gold pb-1" data-i18n="nav_contact">Contact</a>
+            </div>
+            <button id="mobileMenuBtn" class="md:hidden text-black text-xl"><i class="fas fa-bars"></i></button>
+        </div>
+        <!-- Mobile Menu (FIXED BG) -->
+        <div id="mobileMenu" class="fixed inset-0 bg-black z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-6 text-white">
+            <button id="closeMenuBtn" class="absolute top-6 right-6 text-2xl text-brand-gold"><i class="fas fa-times"></i></button>
+            <a href="index.html" class="hover:text-brand-gold" data-i18n="nav_home">Home</a>
+            <a href="packages.html" class="hover:text-brand-gold" data-i18n="nav_packages">Packages</a>
+            <a href="gallery.html" class="hover:text-brand-gold" data-i18n="nav_gallery">Gallery</a>
+            <a href="contact.html" class="text-brand-gold" data-i18n="nav_contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-brand-darkGray py-20 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
+        <div class="relative z-10 container mx-auto px-6">
+            <h1 class="text-3xl md:text-5xl font-serif font-bold text-white uppercase tracking-widest mb-4" data-i18n="cnt_page_title">Contact Us</h1>
+            <div class="w-16 h-1 bg-brand-gold mx-auto mb-6"></div>
+            <p class="text-gray-400 text-sm max-w-2xl mx-auto font-light leading-relaxed" data-i18n="cnt_page_subtitle">
+                We are here to support you 24 hours a day, 7 days a week. Please do not hesitate to contact us for immediate assistance.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16">
+                
+                <!-- Contact Info -->
+                <div class="lg:w-1/3 space-y-10">
+                    <div class="flex gap-5 items-start">
+                        <div class="w-12 h-12 bg-brand-gray text-brand-gold flex items-center justify-center rounded-sm flex-shrink-0">
+                            <i class="fas fa-phone-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-serif font-bold text-brand-black mb-2" data-i18n="cnt_info_phone">Phone</h4>
+                            <p class="text-gray-500 text-sm leading-relaxed">
+                                <a href="tel:038223XXXX" class="hover:text-brand-gold transition">038-223-XXXX</a> <br>
+                                <a href="tel:077123XXXX" class="hover:text-brand-gold transition">077-123-XXXX</a> (Mobile)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 items-start">
+                        <div class="w-12 h-12 bg-brand-gray text-brand-gold flex items-center justify-center rounded-sm flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-serif font-bold text-brand-black mb-2" data-i18n="cnt_info_address">Address</h4>
+                            <p class="text-gray-500 text-sm leading-relaxed">
+                                No. 123, Galle Road,<br>
+                                Panadura, Sri Lanka.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 items-start">
+                        <div class="w-12 h-12 bg-brand-gray text-brand-gold flex items-center justify-center rounded-sm flex-shrink-0">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-serif font-bold text-brand-black mb-2" data-i18n="cnt_info_email">Email</h4>
+                            <p class="text-gray-500 text-sm leading-relaxed">
+                                <a href="mailto:info@panaduraflorists.lk" class="hover:text-brand-gold transition">info@panaduraflorists.lk</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:w-2/3 bg-brand-gray/30 p-8 md:p-12 border border-gray-100 rounded-sm">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2" data-i18n="form_name">Your Name</label>
+                                <input type="text" class="w-full bg-white border border-gray-200 p-4 text-sm focus:border-brand-gold focus:outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2" data-i18n="form_phone">Phone Number</label>
+                                <input type="tel" class="w-full bg-white border border-gray-200 p-4 text-sm focus:border-brand-gold focus:outline-none transition">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2" data-i18n="form_email">Email Address</label>
+                            <input type="email" class="w-full bg-white border border-gray-200 p-4 text-sm focus:border-brand-gold focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2" data-i18n="form_message">Message</label>
+                            <textarea rows="5" class="w-full bg-white border border-gray-200 p-4 text-sm focus:border-brand-gold focus:outline-none transition"></textarea>
+                        </div>
+                        <button type="button" class="bg-brand-black text-white px-10 py-4 font-bold uppercase tracking-widest text-xs hover:bg-brand-gold hover:text-black transition duration-300 w-full md:w-auto" data-i18n="form_submit">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full bg-gray-200 grayscale hover:grayscale-0 transition duration-700">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d700.4090169255602!2d79.90497533961327!3d6.756228118578198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2459e55d9b401%3A0xe2a05f3201125695!2zUGFuYWR1cmEgRmxvcmlzdHMgKOC2tOC3k-C2u-C3kuC3g-C3iik!5e0!3m2!1sen!2slk!4v1764266432446!5m2!1sen!2slk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-brand-black text-white pt-20 pb-8 border-t-4 border-brand-gold">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12">
+            <div class="md:col-span-1">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-brand-gold text-black flex items-center justify-center rounded-sm">
+                        <i class="fas fa-dove"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-serif font-bold uppercase leading-none">Panadura</h4>
+                        <span class="text-[0.6rem] uppercase tracking-widest text-brand-gold">Florists & Funerals</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Links -->
+            <div>
+                <h5 class="text-sm font-bold uppercase tracking-[0.2em] text-brand-gold mb-6">Navigation</h5>
+                <ul class="space-y-3 text-sm text-gray-400 font-medium">
+                    <li><a href="about-us.html" class="hover:text-white transition flex items-center gap-2" data-i18n="nav_about"><i class="fas fa-angle-right text-xs"></i> About Us</a></li>
+                    <li><a href="services.html" class="hover:text-white transition flex items-center gap-2" data-i18n="nav_services"><i class="fas fa-angle-right text-xs"></i> Our Services</a></li>
+                    <li><a href="packages.html" class="hover:text-white transition flex items-center gap-2" data-i18n="nav_packages"><i class="fas fa-angle-right text-xs"></i> Packages</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition flex items-center gap-2" data-i18n="nav_contact"><i class="fas fa-angle-right text-xs"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            <!-- Contact -->
+            <div>
+                 <h5 class="text-sm font-bold uppercase tracking-[0.2em] text-brand-gold mb-6">Contact Us</h5>
+                 <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex items-start gap-4">
+                        <i class="fas fa-phone mt-1 text-brand-gold"></i> 
+                        <span>038-223-XXXX</span>
+                    </li>
+                 </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 pt-8 text-center text-xs text-gray-500">
+            <p>&copy; 2025 Panadura Florists (Pvt) Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Home Button (Mobile Only) -->
+    <a href="index.html" class="fixed bottom-6 left-6 bg-brand-black text-brand-gold w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-brand-gold hover:text-black transition duration-300 z-40 md:hidden">
+        <i class="fas fa-home text-lg"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Panadura Florists</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Manrope:wght@300;400;500;600&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#111111',
+                            dark: '#0f172a',    
+                            gold: '#bf9b30',    
+                            goldLight: '#eecf6d',
+                            gray: '#f3f4f6',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cinzel"', 'serif'],
+                        sans: ['"Manrope"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-600 bg-white">
+
+    <!-- Top Info Bar -->
+    <div class="bg-brand-black text-gray-400 py-3 text-xs md:text-sm border-b border-white/10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-2"><i class="fas fa-phone-alt text-brand-gold"></i> 24/7 Hotline: <b class="text-white tracking-wider">038-223-XXXX</b></span>
+            </div>
+            <div class="flex gap-4">
+                <a href="javascript:void(0)" onclick="changeLanguage('si')" id="btn-si" class="hover:text-brand-gold transition font-sinhala">Sinhala</a>
+                <span class="text-gray-700">|</span>
+                <a href="javascript:void(0)" onclick="changeLanguage('en')" id="btn-en" class="text-brand-gold font-bold">English</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex flex-col leading-tight group">
+                <span class="text-2xl md:text-3xl font-serif font-bold text-brand-dark tracking-wide group-hover:text-brand-gold transition">PANADURA</span>
+                <span class="text-[0.65rem] md:text-xs tracking-[0.2em] text-gray-500 uppercase font-sans">Florists & Funerals</span>
+            </a>
+            <div class="hidden md:flex space-x-8 font-sans text-sm font-medium text-gray-700 items-center">
+                <a href="index.html" class="hover:text-brand-gold transition" data-i18n="nav_home">Home</a>
+                <a href="about-us.html" class="text-brand-gold relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-brand-gold" data-i18n="nav_about">About Us</a>
+                <a href="services.html" class="hover:text-brand-gold transition" data-i18n="nav_services">Services</a>
+                <a href="packages.html" class="hover:text-brand-gold transition" data-i18n="nav_packages">Packages</a>
+                <a href="gallery.html" class="hover:text-brand-gold transition" data-i18n="nav_gallery">Gallery</a>
+                <a href="contact.html" class="px-5 py-2 bg-brand-dark text-white rounded-sm hover:bg-brand-gold transition duration-300" data-i18n="nav_contact">Contact Us</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-brand-dark text-2xl focus:outline-none p-2">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu Overlay (FIXED BG) -->
+        <div id="mobileMenu" class="fixed inset-0 bg-black z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-8 text-white text-xl font-serif">
+            <button id="closeMenuBtn" class="absolute top-6 right-6 text-3xl text-brand-gold">
+                <i class="fas fa-times"></i>
+            </button>
+            <a href="index.html" class="hover:text-brand-gold transition" data-i18n="nav_home">Home</a>
+            <a href="about-us.html" class="hover:text-brand-gold transition" data-i18n="nav_about">About Us</a>
+            <a href="services.html" class="hover:text-brand-gold transition" data-i18n="nav_services">Services</a>
+            <a href="packages.html" class="hover:text-brand-gold transition" data-i18n="nav_packages">Packages</a>
+            <a href="gallery.html" class="hover:text-brand-gold transition" data-i18n="nav_gallery">Gallery</a>
+            <a href="contact.html" class="text-brand-gold border border-brand-gold px-8 py-2 mt-4" data-i18n="nav_contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="relative h-[400px] bg-fixed bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1542359548-93e1a6c429c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        <div class="absolute inset-0 bg-brand-dark/60"></div>
+        <div class="relative z-10 text-center px-4 fade-in-up">
+            <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-4" data-i18n="abt_page_title">About Us</h1>
+            <div class="w-16 h-1 bg-brand-gold mx-auto"></div>
+        </div>
+    </header>
+
+    <!-- Story Section -->
+    <section class="py-20 container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2 scroll-hidden">
+                <img src="https://images.unsplash.com/photo-1596068582733-4f59b9560c44?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Peaceful Floral" class="w-full h-auto rounded-sm shadow-xl">
+            </div>
+            <div class="md:w-1/2 scroll-hidden delay-100">
+                <span class="text-brand-gold font-sans text-sm font-bold tracking-widest uppercase mb-2 block" data-i18n="abt_history_label">Our History</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-brand-dark mb-6" data-i18n="abt_history_title">Serving with Compassion Since 1990</h2>
+                <p class="text-gray-600 leading-relaxed mb-6 font-light text-lg" data-i18n="abt_history_desc1">
+                    Founded over three decades ago, Panadura Florists began with a simple mission: to provide families with a shoulder to lean on during life’s most difficult moments.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-6 font-light text-lg" data-i18n="abt_history_desc2">
+                    From our humble beginnings as a local floral shop, we have grown into a premier funeral service provider in the Kalutara District. We believe that every life is unique, and every farewell should reflect that uniqueness with dignity and grace.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-6 mt-8">
+                    <div>
+                        <h4 class="text-3xl font-serif text-brand-gold font-bold">30+</h4>
+                        <p class="text-sm uppercase tracking-wide text-gray-500" data-i18n="abt_stat_years">Years Experience</p>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-serif text-brand-gold font-bold">1000+</h4>
+                        <p class="text-sm uppercase tracking-wide text-gray-500" data-i18n="abt_stat_families">Families Served</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Grid -->
+    <section class="py-20 bg-brand-dark text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div class="p-6 scroll-hidden">
+                    <i class="fas fa-heart text-4xl text-brand-gold mb-6"></i>
+                    <h3 class="text-2xl font-serif mb-4" data-i18n="val_empathy_title">Empathy First</h3>
+                    <p class="text-gray-400 font-light" data-i18n="val_empathy_desc">We listen to your needs with an open heart, ensuring you feel supported at every step.</p>
+                </div>
+                <div class="p-6 scroll-hidden delay-100">
+                    <i class="fas fa-hands-praying text-4xl text-brand-gold mb-6"></i>
+                    <h3 class="text-2xl font-serif mb-4" data-i18n="val_respect_title">Respectful Care</h3>
+                    <p class="text-gray-400 font-light" data-i18n="val_respect_desc">We treat your loved ones with the highest level of dignity, adhering to all cultural traditions.</p>
+                </div>
+                <div class="p-6 scroll-hidden delay-200">
+                    <i class="fas fa-star text-4xl text-brand-gold mb-6"></i>
+                    <h3 class="text-2xl font-serif mb-4" data-i18n="val_excellence_title">Excellence</h3>
+                    <p class="text-gray-400 font-light" data-i18n="val_excellence_desc">From our facilities to our floral arrangements, we maintain the highest standards of quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Simplified) -->
+    <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+        <div class="container mx-auto px-6 text-center text-sm text-gray-500">
+            <p>&copy; 2025 Panadura Florists. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Home Button (Mobile Only) -->
+    <a href="index.html" class="fixed bottom-6 left-6 bg-brand-dark text-brand-gold w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-brand-gold hover:text-black transition duration-300 z-40 md:hidden">
+        <i class="fas fa-home text-lg"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
